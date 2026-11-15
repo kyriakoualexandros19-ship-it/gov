@@ -1,0 +1,530 @@
+      
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background: #001e4d;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background-pattern {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+
+    background-image: radial-gradient(
+        #0875ff 1.5px,
+        transparent 1.5px
+    );
+
+    background-size: 23px 23px;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.header {
+    position: relative;
+    padding: 25px 20px;
+    z-index: 2;
+}
+
+.header h1 {
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.header p {
+    margin-top: 7px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #70a8e8;
+}
+
+/* =========================================
+   MAIN IDENTITY SCREEN
+========================================= */
+
+.identity-screen {
+    --photo-size: clamp(125px, 43vw, 210px);
+
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    background: linear-gradient(
+        180deg,
+        #06468c,
+        #073773,
+        #03265b
+    );
+
+    overflow: hidden;
+}
+
+/* =========================================
+   LIGHT BLUE TOP SECTION
+========================================= */
+
+.top-section {
+    width: 100%;
+    height: auto;
+
+    padding: 20px 18px 0;
+
+    background: #5c9bd2;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.navigation h2 {
+    font-size: 21px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.navigation span {
+    font-size: 35px;
+}
+
+/* =========================================
+   IDENTITY TOP
+========================================= */
+
+.identity-top {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        var(--photo-size);
+
+    column-gap: 12px;
+
+    align-items: start;
+    position: relative;
+
+    /*
+       Extra space below the identity details
+       while maintaining the 80/20 photo overlap.
+    */
+
+    height: calc(var(--photo-size) * 0.8 + 18px);
+}
+
+/* =========================================
+   IDENTITY NUMBER
+========================================= */
+
+.identity-number {
+    width: 100%;
+    min-width: 0;
+
+    text-align: left;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 0 0 18px;
+    margin: 0;
+}
+
+.identity-number small {
+    display: block;
+
+    font-size: clamp(15px, 4vw, 18px);
+    color: #e1efff;
+
+    margin-bottom: 8px;
+}
+
+.identity-number h2 {
+    font-size: clamp(19px, 5.2vw, 27px);
+
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+
+    overflow-wrap: anywhere;
+
+    margin-bottom: 10px;
+}
+
+.identity-number p {
+    font-size: clamp(17px, 4.5vw, 22px);
+
+    letter-spacing: 1px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* =========================================
+   PROFILE PHOTO
+========================================= */
+
+.profile-photo {
+    width: var(--photo-size);
+    height: var(--photo-size);
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 19px;
+
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    z-index: 5;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+}
+
+.profile-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+
+    object-fit: cover;
+    border-radius: 19px;
+}
+
+/* =========================================
+   CONTENT SECTION
+========================================= */
+
+.content {
+    position: relative;
+
+    width: 100%;
+    margin: auto;
+
+    padding:
+        20px
+        18px
+        60px;
+
+    z-index: 2;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    width: 100%;
+    margin: 0 auto 25px;
+}
+
+.action {
+    min-height: 49px;
+
+    padding: 2px 5px;
+
+    border: none;
+    background: white;
+
+    border-radius: 12px;
+    color: #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.action:hover {
+    background: #e5f1ff;
+}
+
+.icon {
+    font-size: 26px;
+    flex-shrink: 0;
+}
+
+.qr-action {
+    grid-column: span 2;
+
+    min-height: 46px;
+    font-size: 17px;
+}
+.qr-action span{
+    font-weight: 500;
+}
+
+/* =========================================
+   WALLET BUTTON
+========================================= */
+
+.actions .action:first-child {
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 12px;
+}
+
+.actions .action:first-child > span:last-child {
+    display: block;
+    text-align: left;
+}
+
+.actions .action:first-child b {
+    display: block;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* =========================================
+   PERSONAL INFORMATION
+========================================= */
+
+.personal-information {
+    position: relative;
+
+    width: 100%;
+    margin: auto;
+
+    z-index: 1;
+}
+
+.field {
+    padding: 18px 5px 12px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.35);
+}
+
+.field small {
+    display: block;
+
+    color: #8db8e8;
+
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.field h2 {
+    font-size: 32px;
+
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    line-height: 1.15;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   DEMO WATERMARK
+========================================= */
+
+.watermark {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-25deg);
+
+    font-size: 24px;
+    font-weight: 900;
+
+    color: rgba(255,255,255,0.07);
+
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .identity-screen {
+        --photo-size: 125px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .top-section {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .navigation h2 {
+        font-size: 17px;
+    }
+
+    .identity-top {
+        column-gap: 8px;
+    }
+
+    .identity-number small {
+        font-size: 13px;
+    }
+
+    .identity-number h2 {
+        font-size: 22px;
+        letter-spacing: 0;
+    }
+
+    .identity-number p {
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+
+    .content {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .action {
+        min-height: 44px;
+        padding: 1px 3px;
+        font-size: 14px;
+        gap: 5px;
+    }
+    .asd {
+        font-size: 12px;
+    }
+
+    .actions .action:first-child {
+        padding-left: 7px;
+    }
+
+    .actions .action:first-child b {
+        font-size: 15px;
+    }
+
+    .icon {
+        font-size: 21px;
+    }
+
+    .qr-action {
+        min-height: 43px;
+        font-size: 15px;
+    }
+
+    .field h2 {
+        font-size: 27px;
+    }
+}
+
+/* =========================================
+   LARGER PHONES
+========================================= */
+
+@media (min-width: 430px) {
+
+    .identity-screen {
+        --photo-size: 210px;
+    }
+
+    .top-section {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .identity-top {
+        column-gap: 15px;
+    }
+
+    .content {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .field h2 {
+        font-size: 34px;
+    }
+}
+
+/* =========================================
+   TABLET / DESKTOP FALLBACK
+========================================= */
+
+@media (min-width: 700px) {
+
+    .identity-screen {
+        --photo-size: 210px;
+    }
+
+    .top-section {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .identity-top {
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .content {
+        max-width: 1000px;
+    }
+}
